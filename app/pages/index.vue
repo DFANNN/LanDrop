@@ -12,20 +12,20 @@
         </span>
         <span class="text-sm font-semibold text-slate-700">xxx</span>
       </div>
-      <div>
-        <!-- <UButton color="neutral" @click="">Button</UButton> -->
+      <div class="flex items-center justify-center">
+        <UIcon name="i-lucide-sidebar" class="h-4.5 w-4.5 cursor-pointer text-slate-500 hover:text-slate-950" />
       </div>
     </header>
     <div class="flex-1 min-h-0 flex gap-3 px-4 pb-4">
       <aside class="w-73 min-h-0 flex flex-col gap-3">
         <div class="py-2 flex items-center justify-between">
           <h1 class="text-xs font-semibold uppercase leading-5 text-slate-500">这是什么</h1>
-          <UBadge color="neutral" class="font-bold rounded-full">10 人</UBadge>
+          <UBadge color="neutral" class="font-bold rounded-full" size="sm">10 人</UBadge>
         </div>
 
         <div class="flex-1 min-h-0 flex flex-col gap-2 overflow-y-auto overflow-x-hidden scrollbar-none">
           <div
-            class="flex items-center gap-3 px-3 py-3 rounded-xl transition duration-150 hover:bg-slate-200/45 cursor-pointer"
+            class="flex items-center gap-3 px-3 py-2 rounded-xl transition duration-150 hover:bg-slate-200/45 cursor-pointer"
             v-for="(value, index) in userList"
             :key="`${value.name}-${index}`"
           >
@@ -44,9 +44,12 @@
           <div
             class="flex items-center gap-3 px-3 py-2 rounded-xl transition duration-150 hover:bg-slate-200/45 cursor-pointer"
           >
-            <UAvatar class="bg-[#c0c4cc]" src="https://api.dicebear.com/7.x/avataaars/svg?seed=Mike" loading="lazy" />
-            <div class="flex-1">
-              <h3 class="text-[13px] font-semibold leading-4 text-slate-950">name</h3>
+            <UAvatar class="bg-slate-950" src="https://api.dicebear.com/7.x/avataaars/svg?seed=Mike" loading="lazy" />
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center justify-between gap-2">
+                <h3 class="truncate text-[13px] font-semibold leading-4 text-slate-950">name</h3>
+                <UBadge color="neutral" class="font-bold rounded-full" size="xs">本 机</UBadge>
+              </div>
               <div class="flex justify-between text-xs leading-4 text-slate-500">
                 <div>xxx</div>
                 <div>xxx.xxx.xxx.xxx</div>
@@ -86,90 +89,6 @@ const userList = ref([
     ip: 'xxx.xxx.xxx.xxx',
     device: 'iphone',
     avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Mike'
-  },
-  {
-    name: 'Kate',
-    ip: 'xxx.xxx.xxx.xxx',
-    device: 'macOS',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Kate'
-  },
-  {
-    name: 'John',
-    ip: 'xxx.xxx.xxx.xxx',
-    device: 'iphone',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=John'
-  },
-  {
-    name: 'Mike',
-    ip: 'xxx.xxx.xxx.xxx',
-    device: 'iphone',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Mike'
-  },
-  {
-    name: 'Kate',
-    ip: 'xxx.xxx.xxx.xxx',
-    device: 'macOS',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Kate'
-  },
-  {
-    name: 'John',
-    ip: 'xxx.xxx.xxx.xxx',
-    device: 'iphone',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=John'
-  },
-  {
-    name: 'Mike',
-    ip: 'xxx.xxx.xxx.xxx',
-    device: 'iphone',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Mike'
-  },
-  {
-    name: 'Kate',
-    ip: 'xxx.xxx.xxx.xxx',
-    device: 'macOS',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Kate'
-  },
-  {
-    name: 'John',
-    ip: 'xxx.xxx.xxx.xxx',
-    device: 'iphone',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=John'
-  },
-  {
-    name: 'Mike',
-    ip: 'xxx.xxx.xxx.xxx',
-    device: 'iphone',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Mike'
-  },
-  {
-    name: 'Kate',
-    ip: 'xxx.xxx.xxx.xxx',
-    device: 'macOS',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Kate'
-  },
-  {
-    name: 'John',
-    ip: 'xxx.xxx.xxx.xxx',
-    device: 'iphone',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=John'
-  },
-  {
-    name: 'Mike',
-    ip: 'xxx.xxx.xxx.xxx',
-    device: 'iphone',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Mike'
-  },
-  {
-    name: 'Kate',
-    ip: 'xxx.xxx.xxx.xxx',
-    device: 'macOS',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Kate'
-  },
-  {
-    name: 'John',
-    ip: 'xxx.xxx.xxx.xxx',
-    device: 'iphone',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=John'
   }
 ])
 </script>
