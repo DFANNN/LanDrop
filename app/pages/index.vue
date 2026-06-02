@@ -16,20 +16,20 @@
         <!-- <UButton color="neutral" @click="">Button</UButton> -->
       </div>
     </header>
-    <div class="flex-1 flex gap-3 px-4 pb-4">
-      <aside class="w-73 flex flex-col gap-3">
+    <div class="flex-1 min-h-0 flex gap-3 px-4 pb-4">
+      <aside class="w-73 min-h-0 flex flex-col gap-3">
         <div class="py-2 flex items-center justify-between">
           <h1 class="text-xs font-semibold uppercase leading-5 text-slate-500">这是什么</h1>
           <UBadge color="neutral" class="font-bold rounded-full">10 人</UBadge>
         </div>
 
-        <div class="flex-1 flex flex-col gap-2">
+        <div class="flex-1 min-h-0 flex flex-col gap-2 overflow-y-auto overflow-x-hidden scrollbar-none">
           <div
-            class="flex items-center gap-3 px-3 py-2 rounded-xl transition duration-150 hover:bg-slate-200/45 cursor-pointer"
-            v-for="value in userList"
-            :key="value.name"
+            class="flex items-center gap-3 px-3 py-3 rounded-xl transition duration-150 hover:bg-slate-200/45 cursor-pointer"
+            v-for="(value, index) in userList"
+            :key="`${value.name}-${index}`"
           >
-            <UAvatar class="bg-[#c0c4cc]" :src="value.avatar" loading="lazy" />
+            <UAvatar class="bg-black" :src="value.avatar" loading="lazy" />
             <div class="flex-1">
               <h3 class="text-[13px] font-semibold leading-4 text-slate-950">{{ value.name }}</h3>
               <div class="flex justify-between text-xs leading-4 text-slate-500">
@@ -62,8 +62,6 @@
 </template>
 
 <script setup lang="ts">
-import { de } from '@nuxt/ui/runtime/locale/index.js'
-
 const userList = ref([
   {
     name: 'Mike',
