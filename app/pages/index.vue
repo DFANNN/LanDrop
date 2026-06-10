@@ -28,6 +28,7 @@
             class="flex items-center gap-3 px-3 py-2 rounded-xl transition duration-150 hover:bg-slate-200/45 cursor-pointer"
             v-for="(value, index) in userList"
             :key="`${value.name}-${index}`"
+            @click="sendMessage"
           >
             <UAvatar class="bg-black" :src="value.avatar" loading="lazy" />
             <div class="flex-1">
@@ -91,6 +92,43 @@ const userList = ref([
     avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Mike'
   }
 ])
+
+let socketRef = ref<WebSocket | null>(null)
+
+const getUrl = () => {
+  const url = new URL(window.location.href)
+  url.protocol = url.protocol === 'https:' ? 'wss:' : 'ws:'
+  url.pathname = '/ws'
+  return url.toString()
+}
+
+const initWebSocket = () => {
+  socketRef.value = new WebSocket(getUrl())
+
+  socketRef.value.onopen = () => {
+    console.log('连接已打开')
+  }
+
+  socketRef.value.onmessage = event => {
+    console.log('收到消息:', event.data)
+  }
+
+  socketRef.value.onclose = () => {
+    console.log('连接已关闭')
+  }
+
+  socketRef.value.onerror = error => {
+    console.error('WebSocket 错误:', error)
+  }
+}
+
+const sendMessage = () => {
+  socketRef.value?.send('Hello, WebSocket!')
+}
+
+onMounted(() => {
+  initWebSocket()
+})
 </script>
 
 <style></style>

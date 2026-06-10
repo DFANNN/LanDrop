@@ -5,6 +5,11 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
+  nitro: {
+    experimental: {
+      websocket: true
+    }
+  },
   css: ['./app/styles/index.css'],
   modules: ['@nuxt/ui'],
   vite: {
